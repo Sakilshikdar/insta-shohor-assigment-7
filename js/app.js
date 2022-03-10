@@ -1,4 +1,4 @@
-let posts=[ ];
+let posts=[];
 
 const likedPostsId = [];
 const reportedPostsId = [];
@@ -16,7 +16,7 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-    likedPostsId.plus(id); 
+    likedPostsId.push(id); 
     showPosts(posts);
 };
 
@@ -51,19 +51,16 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
+  console.log(post.comments[0])
     const image = post.image;
     const div = document.createElement( "article" );
     div.classList.add( "post" );
     div.innerHTML = `
               <div class="post__header">
                 <div class="post__profile">
-                  <a
-                    href="https://github.com/ProgrammingHero1"
-                    target="_blank"
-                    class="post__avatar"
-                  >
-                    <img src="${image}" alt="User Picture" />
-                  </a>
+                <a href="#" class="post__likes-avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="User Picture" />
+              </a>
                   <a href="#" class="post__user">phero</a>
                 </div>
 
