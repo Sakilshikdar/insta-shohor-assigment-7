@@ -31,19 +31,19 @@ const displayContent = (text) => {
 };
 
 const switchTab = (id) => {
-  document.getElementById( "liked" ).innerHTML = '';
     if (id === "posts") {
         document.getElementById( "posts" ).style.display = "grid";
         document.getElementById( "liked" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
     } else if (id === "liked") {
+      document.getElementById( "liked" ).innerHTML = '';
         document.getElementById( "liked" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
 
         displayLikedPosts();
     } else {
-        dis
+      document.getElementById( "reported" ).innerHTML = ''
         document.getElementById( "reported" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "liked" ).style.display = "none";
@@ -132,7 +132,6 @@ const createPost = (post) => {
 
 const showPosts = (posts) => {
     const productsContainer = document.getElementById( "posts" );
-    console.log(posts)
     productsContainer.innerHTML = "";
 
     posts.forEach((post) => {
@@ -150,8 +149,9 @@ const displayLikedPosts = () => {
 };
 
 const displayReportedPosts = () => {
-    // const reportedPosts = getReportedPosts();
-    posts.forEach((post) => {
+    const reportedPosts = getReportedPosts();
+    reportedPosts.forEach((post) => {
+      console.log(post)
         const div = createPost(post);
         document.getElementById( "reported" ).appendChild(div);
     });
